@@ -7,7 +7,5 @@ inputs:
 runs:
   using: composite
   steps:
-    - run: |
-        chmod +x ${{ github.action_path }}/entrypoint.sh
-        ${{ github.action_path }}/entrypoint.sh ${{ env.INPUT_FILE }}
+    - run: kotlin ${{ github.action_path }}/ReadProperties.main.kts ${{ inputs.file }}
       shell: bash
