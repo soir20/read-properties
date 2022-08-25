@@ -1,0 +1,13 @@
+name: Read All Properties
+description: Reads all properties in a .properties file
+inputs:
+  file:
+    description: Path to the .properties file to read properties from
+    required: true
+runs:
+  using: composite
+  steps:
+    - run: |
+        chmod +x ${{ github.action_path }}/entrypoint.sh
+        ${{ github.action_path }}/entrypoint.sh ${{ env.INPUT_FILE }}
+      shell: bash
