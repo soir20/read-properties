@@ -4,8 +4,15 @@ inputs:
   file:
     description: Path to the .properties file to read properties from
     required: true
+  property:
+    description: Name of the property to retrieve
+outputs:
+  value:
+    description: Value of the property that was retrieved
+    value: ${{ steps.retrieve-property.outputs.value }}
 runs:
   using: composite
   steps:
-    - run: kotlin ${{ github.action_path }}/ReadProperties.main.kts ${{ inputs.file }}
+    - id: retrieve-property
+      run: kotlin ${{ github.action_path }}/ReadProperties.main.kts ${{ inputs.file }} ${{ inputs.property }}
       shell: bash
