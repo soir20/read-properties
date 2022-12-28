@@ -14,5 +14,5 @@ runs:
   using: composite
   steps:
     - id: retrieve-property
-      run: kotlin ${{ github.action_path }}/ReadProperties.main.kts ${{ inputs.file }} ${{ inputs.property }}
+      run: kotlin ${{ github.action_path }}/ReadProperties.main.kts ${{ inputs.file }} ${{ inputs.property }} >> $GITHUB_OUTPUT
       shell: bash

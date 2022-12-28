@@ -19,5 +19,5 @@ FileInputStream(fileName).use { stream ->
     properties.load(stream)
 
     val value = properties.getProperty(property)
-    println("::set-output name=value::$value")
+    println("value=$value")
 }
