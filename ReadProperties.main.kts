@@ -1,11 +1,10 @@
 #!/usr/bin/env kotlin
 
 import java.io.FileInputStream
-import java.util.Arrays
-import java.util.Properties
+import java.util.*
 
 if (args.size != 2) {
-    val argsStr = Arrays.toString(args)
+    val argsStr = args.contentToString()
     throw IllegalArgumentException("Expected 2 arguments, provided: $argsStr")
 }
 
